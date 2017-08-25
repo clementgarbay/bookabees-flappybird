@@ -1,3 +1,4 @@
+import Phaser from 'phaser'
 import { restartGame } from '../main'
 
 class GameOver {
@@ -41,6 +42,9 @@ class GameOver {
       'btnTryAgain',
       restartGame
     ).scale.setTo(0.5, 0.5)
+
+    // Map spacebar to restart game function
+    this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR).onDown.add(restartGame)
   }
 }
 
