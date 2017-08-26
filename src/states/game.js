@@ -1,5 +1,6 @@
 import Phaser from 'phaser'
 import config from '../config'
+import { isMobile } from '../utils'
 import { gameOver } from '../main'
 
 const random = (max, min = 0) => Math.floor(Math.random() * (max + 1 - min) + min)
@@ -19,7 +20,6 @@ class Game {
 
   create () {
     // Game configuration
-    this.game.stage.backgroundColor = '#fff'
     this.game.add.sprite(0, 0, 'background').scale.setTo(0.5, 0.5)
     this.game.physics.startSystem(Phaser.Physics.ARCADE)
 
@@ -40,6 +40,11 @@ class Game {
 
     // Map spacebar to jump function
     this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR).onDown.add(this.jump, this)
+
+    // If it's mobile, map also touch screen to jump function
+    if (isMobile()) {
+      this.game.input.onDown.add(this.jump, this)
+    }
   }
 
   update () {

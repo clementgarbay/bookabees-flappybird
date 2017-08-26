@@ -17,7 +17,6 @@ class GameOver {
 
   create () {
     // Game configuration
-    this.game.stage.backgroundColor = '#fff'
     this.game.add.sprite(0, 0, 'background').scale.setTo(0.5, 0.5)
 
     // Add an overlay

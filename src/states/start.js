@@ -1,4 +1,5 @@
 import Phaser from 'phaser'
+import { isMobile } from '../utils'
 import { restartGame } from '../main'
 
 class Start {
@@ -14,6 +15,9 @@ class Start {
 
   create () {
     // Game configuration
+    this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL
+    this.game.scale.pageAlignHorizontally = true
+    this.game.scale.pageAlignVertically = true
     this.game.stage.backgroundColor = '#fff'
     this.game.add.sprite(0, 0, 'background').scale.setTo(0.5, 0.5)
 
@@ -28,8 +32,9 @@ class Start {
     this.game.add.sprite(this.game.world.centerX - titleImg.width * 0.25, 80, 'title').scale.setTo(0.5, 0.5)
 
     // Instruction
+    const instructionKey = isMobile() ? 'click the screen' : 'press SPACE'
     this.game.add
-      .text(0, 0, 'You need to press SPACE to make the bird fly.', { font: '15px Arial', fill: '#fff', boundsAlignH: 'center' })
+      .text(0, 0, `You need to ${instructionKey} to make the bird fly.`, { font: '15px Arial', fill: '#fff', boundsAlignH: 'center' })
       .setTextBounds(0, 160, this.game.world.width, 20)
     this.game.add
       .text(0, 0, 'Beware of the clouds!', { font: '15px Arial', fill: '#fff', boundsAlignH: 'center' })

@@ -4,7 +4,7 @@
   "description": "A simple flappy bird game for Bookabees",
   "main": "index.js",
   "scripts": {
-    "build": "browserify src/main.js -o dist/bundle.js -t [ babelify --presets [ es2015 ] ]"
+    "build": "browserify src/main.js -t [ babelify --presets [ es2015 ] ] | uglifyjs > dist/bundle.js"
   },
   "author": "Clément GARBAY <clementgarbay@gmail.com>",
   "browserify-shim": {
@@ -23,6 +23,7 @@
     "babel-preset-es2015": "^6.24.1",
     "babelify": "^7.3.0",
     "browserify": "^14.4.0",
-    "browserify-shim": "^3.8.14"
+    "browserify-shim": "^3.8.14",
+    "uglifyjs": "^2.4.11"
   }
 }
