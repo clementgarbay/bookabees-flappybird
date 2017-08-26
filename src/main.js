@@ -5,7 +5,7 @@ import GameState from './states/game'
 import GameOverState from './states/gameover'
 
 // Create Phaser game instance
-const game = new Phaser.Game(config.screen.width, config.screen.height, Phaser.AUTO, 'container')
+const game = new Phaser.Game(config.screen.width, config.screen.height, Phaser.AUTO, 'game')
 
 // Add game states
 game.state.add('start', StartState)
