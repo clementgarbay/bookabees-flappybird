@@ -2,6 +2,8 @@
 
 Simple flappy bird like game built with Phaser.
 
+[You can test the game here](https://clementgarbay.github.io/bookabees-flappybird/)
+
 ## Installation
 
 ### In development run:
